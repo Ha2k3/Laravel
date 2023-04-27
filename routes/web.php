@@ -40,5 +40,4 @@ Route::get('covid',[App\Http\Controllers\covid::class,'index']);
 Route::get('form',[App\Http\Controllers\singupController::class,'index']);
 Route::post('form',[App\Http\Controllers\singupController::class,'displayInfor']);
 
-
 Route::get('master', [PageController::class, 'index']);

@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
 <div class="fullwidthbanner">
+    
     <div class="bannercontainer">
         <div class="banner">
             <ul>

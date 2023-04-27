@@ -59,6 +59,7 @@
 				<a href="#"><img src="source/assets/dest/images/pay/visa.jpg" alt="" /></a>
 				<a href="#"><img src="source/assets/dest/images/pay/paypal.jpg" alt="" /></a>
 			</p>
+            
 			<div class="clearfix"></div>
 		</div> <!-- .container -->
 	</div> <!-- .copyright -->
