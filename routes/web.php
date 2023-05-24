@@ -5,7 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\studentcontroller;
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Schema;
 /*
 |--------------------------------------------------------------------------
 | Web Routes định hướng đường dẫn
@@ -41,3 +41,11 @@ Route::get('form',[App\Http\Controllers\singupController::class,'index']);
 Route::post('form',[App\Http\Controllers\singupController::class,'displayInfor']);
 
 Route::get('master', [PageController::class, 'index']);
+
+Route::get('database',function(){
+    Schema::create('loaisp',function($table){
+        $table -> increments('id');
+        $table -> string('ten',200);
+    });
+    echo "Đã thực hiện thành công";
+});

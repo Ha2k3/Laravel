@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <div class="fullwidthbanner">
-    
+
     <div class="bannercontainer">
         <div class="banner">
             <ul>
@@ -314,4 +314,49 @@
         </div> <!-- .main-content -->
     </div> <!-- #content -->
 </div> <!-- .container -->
+<div>
+    @php $gio = gmdate("H", time() + 3600*7); @endphp
+    @if($gio < 12)
+         Chào buổi sáng
+         
+    @elseif($gio < 18)
+        Chào buổi chiều
+    @else
+        Chào buổi tối
+        <!-- {{$gio}} -->
+    @endif
+</div>
+<div>
+    @php
+    $dayOfWeek = \Carbon\Carbon::now()->dayOfWeek;
+    switch ($dayOfWeek) {
+        case 0:
+            echo 'Hôm nay là Chủ nhật';
+            break;
+        case 1:
+            echo 'Hôm nay là Thứ 2';
+            break;
+        case 2:
+            echo 'Hôm nay là Thứ 3';
+            break;
+        case 3:
+            echo 'Hôm nay là Thứ 4';
+            break;
+        case 4:
+            echo 'Hôm nay là Thứ 5';
+            break;
+        case 5:
+            echo 'Hôm nay là Thứ 6';
+            break;
+        default:
+            echo 'Hôm nay là Thứ 7';
+            break;
+    }
+    @endphp
+</div>
+<div>
+    @php 
+        
+    @endphp 
+</div>
 @endsection
