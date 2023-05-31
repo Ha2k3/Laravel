@@ -12,9 +12,17 @@ class testslidecontroller extends Controller
     	//return view('page.trangchu',['slide'=>$slide]);
         $new_product = product::where('new',1)->get();	
         $sanpham_khuyenmai=product::where('promotion_price','<>',0)->get();
-        // dd($new_product);	
     	return view('page.trangchu',compact('slide','new_product','sanpham_khuyenmai'));
     }	
+    public function getDetail(Request $request)
+    {
+        $sanpham = product::where('id',$request->id)->first();
+        $splienquan = product::where('id','<>', $sanpham->id, 'and', 'id_type', '=', $sanpham->id_type,)->paginate(3);
+        $comment = product::where('id',$request->id)->get();							
+        return view('page.chitietsp', compact('sanpham','splienquan','comment'));
+
+
+    }
 }
 
 

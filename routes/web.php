@@ -56,3 +56,5 @@ Route::post('addrooms',[App\Http\Controllers\addroomscontroller::class,'showroom
 
 Route::get('/master',[App\Http\Controllers\testslidecontroller::class,'getIndex']);
 Route::post('master',[App\Http\Controllers\testslidecontroller::class,'getIndex']);
+
+Route::get('/detail/{id}',[App\Http\Controllers\testslidecontroller::class,'getDetail']);

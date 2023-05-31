@@ -60,7 +60,7 @@
                                 <div class="single-item">
                                     @if($new->promotion_price!=0)
                                     <div class="ribbon-wrapper">
-                                        <div class="ribbon-sale">I love you</div>
+                                        <div class="ribbon-sale"></div>
                                     </div>
                                     @endif
                                     <div class="single-item-header">
@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="single-item-caption">
                                         <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                        <a class="beta-btn primary" href="detail/{{$new->id}}">Details <i class="fa fa-chevron-right"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
