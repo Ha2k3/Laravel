@@ -50,30 +50,23 @@
             </div>
         </form>
         <div class="products">
+        <div class="row">
             @if(isset($rooms))
             @foreach ($rooms as $room)
-            <form method="post" action="/book">
-                <div class="room">
-                    <img src="{{ $room->image }}" alt="">
-                    <h4>{{ $room->room_name }}</h4>
-                    <p>{{ $room->description }}</p>
-                    <p>Price:</p>
-                    <p>{{ $room->price }}</p>
-                    <button class="btn btn-primary">Book now</button>
+            <div class="col-md-4">
+                <div class="room-card">
+                    <img src="{{ $room['image'] }}" alt="Room Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $room['room_name'] }}</h5>
+                        <p class="card-text">{{ $room['description'] }}</p>
+                        <p class="card-text">Price: {{ $room['price'] }}</p>
+                        <a href="#" class="btn btn-primary">Book now</a>
+                    </div>
                 </div>
-            </form>
-            @endforeach
-            <!-- addroom.blade.php -->
-            @foreach ($rooms as $room)
-            <div class="room">
-                <h4>{{ $room['room_name'] }}</h4>
-                <p>{{ $room['description'] }}</p>
-                <p>Price: {{ $room['price'] }}</p>
-                <img src="{{ $room['image'] }}" alt="">
             </div>
             @endforeach
-
             @endif
+        </div>
         </div>
     </div>
 

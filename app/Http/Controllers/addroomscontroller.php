@@ -28,7 +28,6 @@ class addroomscontroller extends Controller
         $rooms->push($room); // Thêm phần tử vào mảng
 
         Session::put('rooms', $rooms); // Lưu trữ dữ liệu rooms vào session
-
         return view('addroom', compact('rooms'));
     }
 }

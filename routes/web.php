@@ -3,9 +3,10 @@
 use App\Http\Controllers\hello;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\studentcontroller;
-
+use App\Http\Controllers\testslidecontroller;
+// use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
+// use Illuminate\Support\Facades\Schema;
 /*
 |--------------------------------------------------------------------------
 | Web Routes định hướng đường dẫn
@@ -40,12 +41,18 @@ Route::get('covid',[App\Http\Controllers\covid::class,'index']);
 Route::get('form',[App\Http\Controllers\singupController::class,'index']);
 Route::post('form',[App\Http\Controllers\singupController::class,'displayInfor']);
 
-Route::get('master', [PageController::class, 'index']);
+// Route::get('master', [PageController::class, 'index']);
 
-Route::get('database',function(){
-    Schema::create('loaisp',function($table){
-        $table -> increments('id');
-        $table -> string('ten',200);
-    });
-    echo "Đã thực hiện thành công";
-});
+// Route::get('database',function(){
+//     Schema::create('loaisp',function($table){
+//         $table -> increments('id');
+//         $table -> string('ten',200);
+//     });
+//     echo "Đã thực hiện thành công";
+// });
+
+Route::get('addrooms',[App\Http\Controllers\addroomscontroller::class,'index']);
+Route::post('addrooms',[App\Http\Controllers\addroomscontroller::class,'showrooms']);
+
+Route::get('/master',[App\Http\Controllers\testslidecontroller::class,'getIndex']);
+Route::post('master',[App\Http\Controllers\testslidecontroller::class,'getIndex']);
