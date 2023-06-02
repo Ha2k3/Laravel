@@ -1,3 +1,4 @@
+
 @extends('master')
 @section('content')
 <div class="fullwidthbanner">
@@ -91,9 +92,11 @@
         </div>
     </div>
 </div>
+</body>
 <!-- <div>
     @php $gio = gmdate("H", time() + 3600*7); @endphp
-    @if($gio < 12) Chào buổi sáng @elseif($gio < 18) Chào buổi chiều @else Chào buổi tối <!-- {{$gio}} -->
+    @if($gio < 12) Chào buổi sáng @elseif($gio < 18) Chào buổi chiều @else Chào buổi tối  -->
+    <!-- {{$gio}} -->
 <!-- @endif -->
 <!-- </div> -->
 <!-- <div>
@@ -128,5 +131,5 @@
     @php
 
     @endphp
-</div> -->
+</div>
 @endsection

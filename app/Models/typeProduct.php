@@ -9,8 +9,6 @@ class typeProduct extends Model
 {
     use HasFactory;
     protected $table = 'type_products';
-
-
     public function products(){
         return $this -> hasMany('app\product');
     }
