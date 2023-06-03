@@ -54,8 +54,18 @@ Route::post('form',[App\Http\Controllers\singupController::class,'displayInfor']
 Route::get('addrooms',[App\Http\Controllers\addroomscontroller::class,'index']);
 Route::post('addrooms',[App\Http\Controllers\addroomscontroller::class,'showrooms']);
 
-Route::get('/master',[App\Http\Controllers\testslidecontroller::class,'getIndex']);
-Route::post('/master',[App\Http\Controllers\testslidecontroller::class,'getIndex']);
+Route::get('/master',[App\Http\Controllers\PageController::class,'getIndex']);
+Route::post('/master',[App\Http\Controllers\PageController::class,'getIndex']);
 
-Route::get('/detail/{id}',[App\Http\Controllers\testslidecontroller::class,'getDetail']);
-Route::get('/type/{id}', [App\Http\Controllers\testslidecontroller::class,'getLoaiSp']);
+Route::get('/detail/{id}',[App\Http\Controllers\PageController::class,'getDetail']);
+Route::get('/type/{id}', [App\Http\Controllers\PageController::class,'getLoaiSp']);
+
+Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);											
+Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');														
+Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);		
+Route::get('/admin-edit-form/{id}', [App\Http\Controllers\PageController::class, 'getAdminEdit']);													
+
+Route::post('/admin-edit-form/{id}',[App\Http\Controllers\PageController::class, 'postAdminEdit']);
+
+
+Route::post('/admin-delete/{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete']);														

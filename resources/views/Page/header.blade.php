@@ -94,10 +94,8 @@
 					<li><a href="index.html">Trang chủ</a></li>
 					<li><a href="#">Sản phẩm</a>
 						<ul class="sub-menu">
-							@foreach($loai_sp as $loai)
-							<li><a href="/type/{{$loai->id}}">{{$loai->name}}</a></li>
-							@endforeach
-						</ul>
+
+						</ul> 
 					</li>
 					<li><a href="about.html">Giới thiệu</a></li>
 					<li><a href="contacts.html">Liên hệ</a></li>
