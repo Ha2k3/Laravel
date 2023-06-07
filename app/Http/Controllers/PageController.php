@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\product; // Thêm dòng này để import mô hình Product
-use App\Models\bill_detail; // Thêm dòng này để import mô hình BillDetail
+use App\Models\product;
+use App\Models\bill_detail;
 use App\Models\Slide;
-
 use App\Models\comment;
-
-
 use App\Models\typeProduct;
 
 class PageController extends Controller
@@ -18,7 +14,6 @@ class PageController extends Controller
     public function getIndex()
     {
         $slide = Slide::all();
-        //return view('page.trangchu',['slide'=>$slide]);
         $new_product = product::where('new', 1)->get();
         $sanpham_khuyenmai = product::where('promotion_price', '<>', 0)->get();
         return view('page.trangchu', compact('slide', 'new_product', 'sanpham_khuyenmai'));
