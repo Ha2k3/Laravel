@@ -1,3 +1,7 @@
+
+
+
+
 <div id="header">
 	<div class="header-top">
 		<div class="container">
@@ -9,9 +13,12 @@
 			</div>
 			<div class="pull-right auto-width-right">
 				<ul class="top-details menu-beta l-inline">
-					<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-					<li><a href="#">Đăng kí</a></li>
-					<li><a href="#">Đăng nhập</a></li>
+					@if (Session::has('users'))
+					<li><a href="logout"><i class="fa fa-user"></i>{{ Session('users')->name }}</a></li>
+					@else
+					<li><a href="register">Đăng kí</a></li>
+					<li><a href="login">Đăng nhập</a></li>
+					@endif
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -33,44 +40,25 @@
 				</div>
 
 				<div class="beta-comp">
+					@if(session('cart'))
 					<div class="cart">
-						<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
+						<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}}@else Trống @endif) <i class="fa fa-chevron-down"></i></div>
 						<div class="beta-dropdown cart-body">
+							@foreach(session('cart')->items as $product)
 							<div class="cart-item">
+								<a class="cart-item-delete" href="{{ route('xoagiohang', $product['item']['id']) }}" value="{{ $product['item']['id'] }}" soluong="{{ $product['qty'] }}"><i class="fa fa-times"></i></a>
 								<div class="media">
-									<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/1.png" alt=""></a>
+									<a class="pull-left" href="#"><img src="source/image/product/{{ $product['item']['image'] }}" alt=""></a>
 									<div class="media-body">
-										<span class="cart-item-title">Sample Woman Top</span>
+										<span class="cart-item-title">{{ $product['item']['name'] }}</span>
 										<span class="cart-item-options">Size: XS; Colar: Navy</span>
-										<span class="cart-item-amount">1*<span>$49.50</span></span>
+										<span class="cart-item-amount">{{ session('cart')->totalQty }}*<span id="dongia{{ $product['item']['id'] }}" value="@if($product['item']['promotion_price']==0){{ $product['item']['unit_price'] }}@else {{ $product['item']['promotion_price'] }}@endif">@if($product['item']['promotion_price']==0){{ number_format($product['item']['unit_price']) }}@else {{ number_format($product['item']['promotion_price']) }}@endif</span></span>
 									</div>
 								</div>
 							</div>
-
-							<div class="cart-item">
-								<div class="media">
-									<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/2.png" alt=""></a>
-									<div class="media-body">
-										<span class="cart-item-title">Sample Woman Top</span>
-										<span class="cart-item-options">Size: XS; Colar: Navy</span>
-										<span class="cart-item-amount">1*<span>$49.50</span></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="cart-item">
-								<div class="media">
-									<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/3.png" alt=""></a>
-									<div class="media-body">
-										<span class="cart-item-title">Sample Woman Top</span>
-										<span class="cart-item-options">Size: XS; Colar: Navy</span>
-										<span class="cart-item-amount">1*<span>$49.50</span></span>
-									</div>
-								</div>
-							</div>
-
+							@endforeach
 							<div class="cart-caption">
-								<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
+							<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value" value="{{ session('cart')->totalPrice }}">@if(session('cart')){{ number_format(session('cart')->totalPrice) }}@else 0 @endif đồng</span></div>
 								<div class="clearfix"></div>
 
 								<div class="center">
@@ -80,6 +68,7 @@
 							</div>
 						</div>
 					</div> <!-- .cart -->
+					@endif
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -94,8 +83,10 @@
 					<li><a href="index.html">Trang chủ</a></li>
 					<li><a href="#">Sản phẩm</a>
 						<ul class="sub-menu">
-
-						</ul> 
+							<li><a href="product_type.html">Sản phẩm 1</a></li>
+							<li><a href="product_type.html">Sản phẩm 2</a></li>
+							<li><a href="product_type.html">Sản phẩm 4</a></li>
+						</ul>
 					</li>
 					<li><a href="about.html">Giới thiệu</a></li>
 					<li><a href="contacts.html">Liên hệ</a></li>

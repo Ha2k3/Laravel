@@ -41,14 +41,14 @@ class ShowSP extends Controller
             return response()->json(["message" => "ok"]);
         } else return response()->json(["message" => "false"]);
     }
-    public function deleteProduct($id)
-    {
-        $product = t_lazada1::find($id);
-        $fileName = 'source/image/product/' . $product->image;
-        if (File::exists($fileName)) {
-            File::delete($fileName);
-        }
-        $product->delete();
-        return ['status' => 'ok', 'msg' => 'Delete successed'];
-    }
+    // public function deleteProduct($id)
+    // {
+    //     $product = t_lazada1::find($id);
+    //     $fileName = 'source/image/product/' . $product->image;
+    //     if (File::exists($fileName)) {
+    //         File::delete($fileName);
+    //     }
+    //     $product->delete();
+    //     return ['status' => 'ok', 'msg' => 'Delete successed'];
+    // }
 }
