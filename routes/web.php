@@ -83,10 +83,12 @@ Route::post('/login',[App\Http\Controllers\UserController::class,'Login']);
 
 Route::get('/logout',[App\Http\Controllers\UserController::class,'Logout']);
 
-Route::get('add-to-cart/{id}', [App\Http\Controllers\PageController::class, 'getAddToCart'])->name('themgiohang');											
+Route::get('add-to-cart/{id}', [App\Http\Controllers\PageController::class, 'getAddToCart'])->name('themgiohang');		
+
 Route::get('del-cart/{id}', [App\Http\Controllers\PageController::class, 'getDelItemCart'])->name('xoagiohang');											
 											
-Route::get('check-out', [App\Http\Controllers\PageController::class, 'getCheckout'])->name('dathang');				
+Route::get('check-out', [App\Http\Controllers\PageController::class, 'getCheckout'])->name('dathang');		
+		
 Route::post('check-out', [App\Http\Controllers\PageController::class, 'postCheckout'])->name('dathang');	
 
 Route::post('/checkout', [App\Http\Controllers\PageController::class, 'postCheckout'] )->name('checkout');
