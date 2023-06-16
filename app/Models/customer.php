@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class customer extends Model
 {
     use HasFactory;
+    protected $table = 'customer';
+    
+    public function bills()
+    {
+        return $this->hasMany(Bill::class, 'id_customer');
+    }
 }
