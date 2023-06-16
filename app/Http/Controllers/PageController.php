@@ -143,6 +143,7 @@ class PageController extends Controller
         }
     }
 
+    
     public function getDelItemCart($id)
     {
         // Lấy giỏ hàng hiện tại từ session hoặc gán giá trị null nếu không tồn tại
