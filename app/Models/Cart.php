@@ -45,7 +45,7 @@ class Cart extends Model
             $this->totalPrice += $item->promotion_price * $giohang['qty'];
         }
     }
-    //xóa 1                                 
+    //giảm só lượng                                  
     public function reduceByOne($id)
     {
         $this->items[$id]['qty']--;
@@ -56,7 +56,7 @@ class Cart extends Model
             unset($this->items[$id]);
         }
     }
-    //xóa nhiều                                 
+    // Xóa 1 item khỏi giỏ hàng
     public function removeItem($id)
     {
         $this->totalQty -= $this->items[$id]['qty'];

@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             $product_new = typeProduct::where('new', 1)->orderBy('id', 'DESC')->skip(1)->take(8)->get();
             $view->with('product_new', $product_new);
         });
-        view()->composer('header', function ($view) {
+        view()->composer('header', function ($view) {// Đổ dữ liệu trong cart ra header
             if (Session('cart')) {
                 $oldCart = Session::get('cart');
                 $cart = new Cart($oldCart);
